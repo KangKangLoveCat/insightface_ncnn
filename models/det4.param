@@ -1,0 +1,63 @@
+7767517
+61 73
+Input            data                             0 1 data
+Slice            slice                            1 5 data slice slice_subncnn_1 slice_subncnn_2 slice_subncnn_3 slice_subncnn_4 -23300=5,-233,-233,-233,-233,-233
+Convolution      conv1_1                          1 1 slice conv1_1 0=28 1=3 11=3 2=1 12=1 3=1 13=1 4=0 14=0 5=1 6=756
+PReLU            prelu1_1                         1 1 conv1_1 prelu1_1 0=28
+Pooling          pool1_1                          1 1 prelu1_1 pool1_1 0=0 1=3 2=2 3=0 4=0 5=0
+Convolution      conv2_1                          1 1 pool1_1 conv2_1 0=48 1=3 11=3 2=1 12=1 3=1 13=1 4=0 14=0 5=1 6=12096
+PReLU            prelu2_1                         1 1 conv2_1 prelu2_1 0=48
+Pooling          pool2_1                          1 1 prelu2_1 pool2_1 0=0 1=3 2=2 3=0 4=0 5=0
+Convolution      conv3_1                          1 1 pool2_1 conv3_1 0=64 1=2 11=2 2=1 12=1 3=1 13=1 4=0 14=0 5=1 6=12288
+PReLU            prelu3_1                         1 1 conv3_1 prelu3_1 0=64
+Convolution      conv1_2                          1 1 slice_subncnn_1 conv1_2 0=28 1=3 11=3 2=1 12=1 3=1 13=1 4=0 14=0 5=1 6=756
+PReLU            prelu1_2                         1 1 conv1_2 prelu1_2 0=28
+Pooling          pool1_2                          1 1 prelu1_2 pool1_2 0=0 1=3 2=2 3=0 4=0 5=0
+Convolution      conv2_2                          1 1 pool1_2 conv2_2 0=48 1=3 11=3 2=1 12=1 3=1 13=1 4=0 14=0 5=1 6=12096
+PReLU            prelu2_2                         1 1 conv2_2 prelu2_2 0=48
+Pooling          pool2_2                          1 1 prelu2_2 pool2_2 0=0 1=3 2=2 3=0 4=0 5=0
+Convolution      conv3_2                          1 1 pool2_2 conv3_2 0=64 1=2 11=2 2=1 12=1 3=1 13=1 4=0 14=0 5=1 6=12288
+PReLU            prelu3_2                         1 1 conv3_2 prelu3_2 0=64
+Convolution      conv1_3                          1 1 slice_subncnn_2 conv1_3 0=28 1=3 11=3 2=1 12=1 3=1 13=1 4=0 14=0 5=1 6=756
+PReLU            prelu1_3                         1 1 conv1_3 prelu1_3 0=28
+Pooling          pool1_3                          1 1 prelu1_3 pool1_3 0=0 1=3 2=2 3=0 4=0 5=0
+Convolution      conv2_3                          1 1 pool1_3 conv2_3 0=48 1=3 11=3 2=1 12=1 3=1 13=1 4=0 14=0 5=1 6=12096
+PReLU            prelu2_3                         1 1 conv2_3 prelu2_3 0=48
+Pooling          pool2_3                          1 1 prelu2_3 pool2_3 0=0 1=3 2=2 3=0 4=0 5=0
+Convolution      conv3_3                          1 1 pool2_3 conv3_3 0=64 1=2 11=2 2=1 12=1 3=1 13=1 4=0 14=0 5=1 6=12288
+PReLU            prelu3_3                         1 1 conv3_3 prelu3_3 0=64
+Convolution      conv1_4                          1 1 slice_subncnn_3 conv1_4 0=28 1=3 11=3 2=1 12=1 3=1 13=1 4=0 14=0 5=1 6=756
+PReLU            prelu1_4                         1 1 conv1_4 prelu1_4 0=28
+Pooling          pool1_4                          1 1 prelu1_4 pool1_4 0=0 1=3 2=2 3=0 4=0 5=0
+Convolution      conv2_4                          1 1 pool1_4 conv2_4 0=48 1=3 11=3 2=1 12=1 3=1 13=1 4=0 14=0 5=1 6=12096
+PReLU            prelu2_4                         1 1 conv2_4 prelu2_4 0=48
+Pooling          pool2_4                          1 1 prelu2_4 pool2_4 0=0 1=3 2=2 3=0 4=0 5=0
+Convolution      conv3_4                          1 1 pool2_4 conv3_4 0=64 1=2 11=2 2=1 12=1 3=1 13=1 4=0 14=0 5=1 6=12288
+PReLU            prelu3_4                         1 1 conv3_4 prelu3_4 0=64
+Convolution      conv1_5                          1 1 slice_subncnn_4 conv1_5 0=28 1=3 11=3 2=1 12=1 3=1 13=1 4=0 14=0 5=1 6=756
+PReLU            prelu1_5                         1 1 conv1_5 prelu1_5 0=28
+Pooling          pool1_5                          1 1 prelu1_5 pool1_5 0=0 1=3 2=2 3=0 4=0 5=0
+Convolution      conv2_5                          1 1 pool1_5 conv2_5 0=48 1=3 11=3 2=1 12=1 3=1 13=1 4=0 14=0 5=1 6=12096
+PReLU            prelu2_5                         1 1 conv2_5 prelu2_5 0=48
+Pooling          pool2_5                          1 1 prelu2_5 pool2_5 0=0 1=3 2=2 3=0 4=0 5=0
+Convolution      conv3_5                          1 1 pool2_5 conv3_5 0=64 1=2 11=2 2=1 12=1 3=1 13=1 4=0 14=0 5=1 6=12288
+PReLU            prelu3_5                         1 1 conv3_5 prelu3_5 0=64
+Concat           concat                           5 1 prelu3_1 prelu3_2 prelu3_3 prelu3_4 prelu3_5 concat 0=0
+InnerProduct     fc4                              1 1 concat fc4 0=256 1=1 2=737280
+PReLU            prelu4                           1 1 fc4 prelu4 0=256
+Split            splitncnn_0                      1 5 prelu4 prelu4_splitncnn_0 prelu4_splitncnn_1 prelu4_splitncnn_2 prelu4_splitncnn_3 prelu4_splitncnn_4
+InnerProduct     fc4_1                            1 1 prelu4_splitncnn_4 fc4_1 0=64 1=1 2=16384
+PReLU            prelu4_1                         1 1 fc4_1 prelu4_1 0=64
+InnerProduct     fc5_1                            1 1 prelu4_1 fc5_1 0=2 1=1 2=128
+InnerProduct     fc4_2                            1 1 prelu4_splitncnn_3 fc4_2 0=64 1=1 2=16384
+PReLU            prelu4_2                         1 1 fc4_2 prelu4_2 0=64
+InnerProduct     fc5_2                            1 1 prelu4_2 fc5_2 0=2 1=1 2=128
+InnerProduct     fc4_3                            1 1 prelu4_splitncnn_2 fc4_3 0=64 1=1 2=16384
+PReLU            prelu4_3                         1 1 fc4_3 prelu4_3 0=64
+InnerProduct     fc5_3                            1 1 prelu4_3 fc5_3 0=2 1=1 2=128
+InnerProduct     fc4_4                            1 1 prelu4_splitncnn_1 fc4_4 0=64 1=1 2=16384
+PReLU            prelu4_4                         1 1 fc4_4 prelu4_4 0=64
+InnerProduct     fc5_4                            1 1 prelu4_4 fc5_4 0=2 1=1 2=128
+InnerProduct     fc4_5                            1 1 prelu4_splitncnn_0 fc4_5 0=64 1=1 2=16384
+PReLU            prelu4_5                         1 1 fc4_5 prelu4_5 0=64
+InnerProduct     fc5_5                            1 1 prelu4_5 fc5_5 0=2 1=1 2=128
