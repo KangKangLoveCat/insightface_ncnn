@@ -45,7 +45,7 @@ ncnn::Mat preprocess(ncnn::Mat img, FaceInfo info)
     int image_w = 112; //96 or 112
     int image_h = 112;
 
-    float dst[10] = {39.2946, 65.5318, 48.0252, 33.5493, 62.7299,
+    float dst[10] = {30.2946, 65.5318, 48.0252, 33.5493, 62.7299,
                      51.6963, 51.5014, 71.7366, 92.3655, 92.2041};
 
     if (image_w == 112)
@@ -73,5 +73,4 @@ float calcSimilar(std::vector<float> feature1, std::vector<float> feature2)
     for (int i = 0; i < feature1.size(); i++)
         sim += feature1[i] * feature2[i];
     return sim;
-
 }
