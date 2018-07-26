@@ -17,4 +17,6 @@ ncnn::Mat resize(ncnn::Mat src, int w, int h);
 
 void getAffineMatrix(float* src_5pts, const float* dst_5pts, float* M);
 
+void warpAffineMatrix(ncnn::Mat src, ncnn::Mat &dst, float *M, int dst_w, int dst_h);
+
 #endif

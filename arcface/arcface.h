@@ -4,14 +4,12 @@
 #include <cmath>
 #include <vector>
 #include <string>
-#include <iostream>
-#include <opencv2/opencv.hpp>
 #include "net.h"
 #include "base.h"
 
 using namespace std;
 
-cv::Mat preprocess(cv::Mat img, FaceInfo info);
+ncnn::Mat preprocess(ncnn::Mat img, FaceInfo info);
 
 float calcSimilar(std::vector<float> feature1, std::vector<float> feature2);
 

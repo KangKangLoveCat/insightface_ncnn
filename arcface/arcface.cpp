@@ -40,7 +40,7 @@ void Arcface::normalize(vector<float> &feature)
         *it /= sum;
 }
 
-cv::Mat preprocess(cv::Mat img, FaceInfo info)
+ncnn::Mat preprocess(ncnn::Mat img, FaceInfo info)
 {
     int image_w = 112; //96 or 112
     int image_h = 112;
@@ -61,15 +61,14 @@ cv::Mat preprocess(cv::Mat img, FaceInfo info)
 
     float M[6];
     getAffineMatrix(src, dst, M);
-    cv::Mat M_(2, 3, CV_32FC1, M);
-    cv::Mat out;
-    cv::warpAffine(img, out, M_, cv::Size(image_w, image_h));
+    ncnn::Mat out;
+    warpAffineMatrix(img, out, M, image_w, image_h);
     return out;
 }
 
 float calcSimilar(std::vector<float> feature1, std::vector<float> feature2)
 {
-    assert(feature1.size() == feature2.size());
+    //assert(feature1.size() == feature2.size());
     float sim = 0.0;
     for (int i = 0; i < feature1.size(); i++)
         sim += feature1[i] * feature2[i];

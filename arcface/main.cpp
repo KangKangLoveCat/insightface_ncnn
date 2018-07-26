@@ -5,6 +5,24 @@
 #include "mtcnn.h"
 using namespace cv;
 using namespace std;
+
+cv::Mat ncnn2cv(ncnn::Mat img)
+{
+    unsigned char pix[img.h * img.w * 3];
+    img.to_pixels(pix, ncnn::Mat::PIXEL_BGR);
+    cv::Mat cv_img(img.h, img.w, CV_8UC3);
+    for (int i = 0; i < cv_img.rows; i++)
+    {
+        for (int j = 0; j < cv_img.cols; j++)
+        {
+            cv_img.at<cv::Vec3b>(i,j)[0] = pix[3 * (i * cv_img.cols + j)];
+            cv_img.at<cv::Vec3b>(i,j)[1] = pix[3 * (i * cv_img.cols + j) + 1];
+            cv_img.at<cv::Vec3b>(i,j)[2] = pix[3 * (i * cv_img.cols + j) + 2];
+        }
+    }
+    return cv_img;
+}
+
 int main(int argc, char* argv[])
 {
     Mat img1;
@@ -31,8 +49,8 @@ int main(int argc, char* argv[])
     vector<FaceInfo> results2 = detector.Detect(ncnn_img2);
     cout << "Detection Time: " << (getTickCount() - start) / getTickFrequency() << "s" << std::endl;
 
-    cv::Mat det1 = preprocess(img1, results1[0]);
-    cv::Mat det2 = preprocess(img2, results2[0]);
+    ncnn::Mat det1 = preprocess(ncnn_img1, results1[0]);
+    ncnn::Mat det2 = preprocess(ncnn_img2, results2[0]);
     
     for (auto it = results1.begin(); it != results1.end(); it++)
     {
@@ -56,18 +74,15 @@ int main(int argc, char* argv[])
 
     Arcface arc("../models");
 
-    ncnn::Mat ncnn_det1 = ncnn::Mat::from_pixels(det1.data, ncnn::Mat::PIXEL_BGR, det1.cols, det1.rows);
-    ncnn::Mat ncnn_det2 = ncnn::Mat::from_pixels(det2.data, ncnn::Mat::PIXEL_BGR, det2.cols, det2.rows);
-
-    vector<float> feature1 = arc.getFeature(ncnn_det1);
-    vector<float> feature2 = arc.getFeature(ncnn_det2);
+    vector<float> feature1 = arc.getFeature(det1);
+    vector<float> feature2 = arc.getFeature(det2);
     std::cout << "Similarity: " << calcSimilar(feature1, feature2) << std::endl;;
 
-    imshow("img1", img1);
-    imshow("img2", img2);
+    //imshow("img1", img1);
+    //imshow("img2", img2);
 
-    imshow("det1", det1);
-    imshow("det2", det2);
+    imshow("det1", ncnn2cv(det1));
+    imshow("det2", ncnn2cv(det2));
 
     waitKey(0);
     return 0;
