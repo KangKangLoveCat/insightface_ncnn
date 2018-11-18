@@ -3,7 +3,7 @@ COMMON = `pkg-config --cflags opencv`
 LIB = ../ncnn/lib/libncnn.a
 LIB += `pkg-config --libs opencv`
 INCLUDE = -I../ncnn/include
-COMMON += -fopenmp -pthread
+COMMON += -fopenmp -pthread -std=c++11
 DEPS = $(wildcard *.h)
 OBJ = base.o mtcnn.o arcface.o
 all : main

@@ -14,6 +14,22 @@ ncnn::Mat resize(ncnn::Mat src, int w, int h)
     return dst;
 }
 
+ncnn::Mat bgr2rgb(ncnn::Mat src)
+{
+    int src_w = src.w;
+    int src_h = src.h;
+	unsigned char* u_rgb = new unsigned char[src_w * src_h * 3];
+	src.to_pixels(u_rgb, ncnn::Mat::PIXEL_BGR2RGB);
+	ncnn::Mat dst = ncnn::Mat::from_pixels(u_rgb, ncnn::Mat::PIXEL_RGB, src_w, src_h);
+	delete[] u_rgb;
+	return dst;
+}
+
+ncnn::Mat rgb2bgr(ncnn::Mat src)
+{
+	return bgr2rgb(src);
+}
+
 void getAffineMatrix(float* src_5pts, const float* dst_5pts, float* M)
 {
     float src[10], dst[10];
