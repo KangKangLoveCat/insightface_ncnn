@@ -18,7 +18,7 @@ vector<float> Arcface::getFeature(ncnn::Mat img)
 {
     vector<float> feature;
     ncnn::Mat in = resize(img, 112, 112);
-	in = bgr2rgb(in);
+    in = bgr2rgb(in);
     ncnn::Extractor ex = net.create_extractor();
     ex.set_light_mode(true);
     ex.input("data", in);
